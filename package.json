@@ -1,0 +1,23 @@
+{
+  "name": "node-mock-data",
+  "version": "1.0.0",
+  "description": "cretae a mock data platform for development of front end",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "repository": "git+https://github.com/yiqingfeng/node-mock-data.git",
+  "keywords": [
+    "node",
+    "mock"
+  ],
+  "author": "nimo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yiqingfeng/node-mock-data/issues"
+  },
+  "homepage": "https://github.com/yiqingfeng/node-mock-data#readme",
+  "dependencies": {
+    "mockjs": "^1.0.1-beta3"
+  }
+}
