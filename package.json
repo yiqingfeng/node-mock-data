@@ -4,7 +4,7 @@
   "description": "cretae a mock data platform for development of front end",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./bin/index.js"
   },
   "repository": "git+https://github.com/yiqingfeng/node-mock-data.git",
   "keywords": [
@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/yiqingfeng/node-mock-data#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "log4js": "^4.1.0",
     "mockjs": "^1.0.1-beta3"
   }
 }
