@@ -8,6 +8,7 @@
 # testing
 
 # production
+/logs
 
 # misc
 .DS_Store
