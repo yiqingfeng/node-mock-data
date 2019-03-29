@@ -6,7 +6,7 @@
 const http = require('http');
 require('./env')();
 
-const port = require('./config/port');
+const port = require('../configs/port');
 const logger = require('../lib/logger');
 const app = require('../app');
 

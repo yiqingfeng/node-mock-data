@@ -24,22 +24,23 @@ module.exports = {
 			// https://log4js-node.github.io/log4js-node/dateFile.html
 			type: 'dateFile',
 			filename: path.resolve(logRootPath, './access/access'),
-			pattern: 'mm-dd-hh.log',
+			pattern: 'MM-dd-hh.log',
+			category: 'access',
 			alwaysIncludePattern: true,
 		},
 	},
 	categories: {
 		default: {
 			appenders: ['out'],
-			level: 'debug',
+			level: 'DEBUG',
 		},
 		system: {
 			appenders: ISDEBUG ? ['system', 'out'] : ['system'],
-			level: 'all',
+			level: 'DEBUG',
 		},
-		access: {
+		http: {
 			appenders: ['access'],
-			level: 'error',
+			level: ISDEBUG ? 'DEBUG' : 'ERROR',
 		},
 	},
 };

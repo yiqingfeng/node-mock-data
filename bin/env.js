@@ -28,7 +28,7 @@ function parseCli() {
 module.exports = function getEnv() {
 	const params = parseCli();
 
-	process.env.NODE_ENV = params['--release'] ? 'development' : 'production';
+	process.env.NODE_ENV = params['--release'] ? 'production' : 'development';
 
 	if (params['-p'] || params['--port']) {
 		process.env.PORT = params['-p'] || params['--port'];

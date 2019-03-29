@@ -1,32 +1,44 @@
 const path = require('path');
 const express = require('express');
-const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-
-// const indexRouter = require('./routes/index');
-// const usersRouter = require('./routes/users');
+const { httpAccess } = require('./lib/logger');
+const router = require('./src/router');
+const errors = require('./src/errors');
 
 const app = express();
+app.set('env', process.env.NODE_ENV);
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
 
-// app.use(logger('dev'));
+app.use(httpAccess());
 app.use(express.json());
 app.use(express.urlencoded({
-	extended: false
+	extended: false,
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+app.get('/', (req, res) => {
+	res.send('asdas');
+	res.end();
+});
+
+/**
+ * 转给 Router 处理路由
+ */
+// app.use(router);
+
+/**
+ * 错误处理
+ */
+app.use(errors);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-	next(createError(404));
+	// next(createError(404));
+	next(res.send(404));
 });
 
 // error handler
