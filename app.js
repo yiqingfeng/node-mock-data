@@ -12,14 +12,6 @@ const app = express();
 app.set('env', process.env.NODE_ENV);
 
 // view engine setup
-// app.engine('html', function (filePath, options, callback) { // define the template engine
-// 	fs.readFile(filePath, function (err, content) {
-// 		if (err) return callback(err)
-// 		// this is an extremely simple template engine
-// 		var rendered = content.toString().replace('#title#', '<title>' + options.title + '</title>');
-// 		return callback(null,  content.toString());
-// 	})
-// })
 app.set('views', path.join(__dirname, './src/views'));
 app.set('view engine', 'ejs');
 
