@@ -4,6 +4,8 @@
 const path = require('path');
 const logRootPath = path.resolve(__dirname, '../logs');
 
+const ISDEBUG = process.env.NODE_ENV === 'development';
+
 module.exports = {
 	// a log level is the severity or priority of a log event (ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF)
 	// levels: {},
@@ -32,7 +34,7 @@ module.exports = {
 			level: 'debug',
 		},
 		system: {
-			appenders: ['system'],
+			appenders: ISDEBUG ? ['system', 'out'] : ['system'],
 			level: 'all',
 		},
 		access: {

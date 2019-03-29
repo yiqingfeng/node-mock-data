@@ -19,6 +19,4 @@ function normalizePort(val) {
 	return false;
 }
 
-module.exports = function getPort() {
-	return normalizePort(process.env.PORT || '3000');
-};
+module.exports = normalizePort(process.env.PORT || '3000');

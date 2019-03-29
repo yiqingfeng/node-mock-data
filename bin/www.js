@@ -4,12 +4,13 @@
  * Module dependencies.
  */
 const http = require('http');
-var debug = require('debug')('demo:server');
+require('./env')();
 
-const getPort = require('./port');
+const port = require('./config/port');
+const logger = require('../lib/logger');
 const app = require('../app');
 
-app.set('port', getPort);
+app.set('port', port);
 
 /**
  * Create HTTP server.
@@ -34,18 +35,15 @@ function onError(error) {
 		throw error;
 	}
 
-	var bind = typeof port === 'string' ?
-		'Pipe ' + port :
-		'Port ' + port;
-
+	const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
 	// handle specific listen errors with friendly messages
 	switch (error.code) {
 		case 'EACCES':
-			console.error(bind + ' requires elevated privileges');
+			logger.setLog('system', 'fatal', `${bind} requires elevated privileges`)
 			process.exit(1);
 			break;
 		case 'EADDRINUSE':
-			console.error(bind + ' is already in use');
+			logger.setLog('system', 'fatal', `${bind} is already in use`);
 			process.exit(1);
 			break;
 		default:
@@ -56,11 +54,8 @@ function onError(error) {
 /**
  * Event listener for HTTP server "listening" event.
  */
-
 function onListening() {
-	var addr = server.address();
-	var bind = typeof addr === 'string' ?
-		'pipe ' + addr :
-		'port ' + addr.port;
-	debug('Listening on ' + bind);
+	const addr = server.address();
+	const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+	logger.setLog('', 'debug', `Listening on ${bind}`);
 }
