@@ -28,6 +28,13 @@ module.exports = {
 			category: 'access',
 			alwaysIncludePattern: true,
 		},
+		error: {
+			type: 'file',
+			filename: path.resolve(logRootPath, './error/error'),
+			pattern: 'dd-hh.log',
+			category: 'error',
+			alwaysIncludePattern: true,
+		},
 	},
 	categories: {
 		default: {
@@ -42,5 +49,9 @@ module.exports = {
 			appenders: ['access'],
 			level: ISDEBUG ? 'DEBUG' : 'ERROR',
 		},
+		error: {
+			appenders: ['error'],
+			level: 'DEBUG',
+		}
 	},
 };

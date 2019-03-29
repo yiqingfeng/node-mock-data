@@ -19,6 +19,7 @@
   "homepage": "https://github.com/yiqingfeng/node-mock-data#readme",
   "dependencies": {
     "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "log4js": "^4.1.0",
     "mockjs": "^1.0.1-beta3"

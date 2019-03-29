@@ -20,8 +20,8 @@ app.set('env', process.env.NODE_ENV);
 // 		return callback(null,  content.toString());
 // 	})
 // })
-// app.set('views', path.join(__dirname, './src/views'));
-// app.set('view engine', 'html');
+app.set('views', path.join(__dirname, './src/views'));
+app.set('view engine', 'ejs');
 
 app.use(httpAccess());
 app.use(express.json());
